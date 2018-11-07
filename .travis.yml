@@ -1,0 +1,22 @@
+sudo: required
+
+language: node_js
+
+node_js:
+  - "node"
+
+services:
+  - docker
+
+install:
+  - docker build -t kota661/pacman:latest .
+
+script:
+  - echo "Build complete!"
+
+after_success:
+  - echo "Current branch is ${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}"
+  - if [ "${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push kota661/pacman:latest;
+    fi
