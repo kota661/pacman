@@ -1,13 +1,15 @@
-# Node.js Hello World Sample
+# pacman
 
-This application demonstrates a simple, reusable Node.js web application based on the Express framework.
 
-## Run the app locally
+## IBM Cloud Foundry
 
-1. [Install Node.js][]
-1. cd into this project's root directory
-1. Run `npm install` to install the app's dependencies
-1. Run `npm start` to start the app
-1. Access the running app in a browser at <http://localhost:6001>
+```
+ibmcloud cf push pacman .
+```
 
-[Install Node.js]: https://nodejs.org/en/download/
+## IBM Cloud Kubernetes Service
+
+```
+kubectl run pacman --image=kota661/pacman:latest --port=80
+kubectl expose deployment pacman --port 80 --type NodePort
+```
