@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:12.5.0-slim
 MAINTAINER Kota Sato "satokota@jp.ibm.com"
 
 WORKDIR /usr/src/app
