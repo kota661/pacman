@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/kota661/pacman.svg?branch=master)](https://travis-ci.com/kota661/pacman)
+
 # Pacman!
 
 ## Run the app locally - docker
@@ -32,3 +34,4 @@ ibmcloud cf push pacman .
 kubectl run pacman --image=kota661/pacman:v1 --port=80
 kubectl expose deployment pacman --port 80 --type NodePort
 ```
+
