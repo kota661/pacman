@@ -1,13 +1,22 @@
-# Node.js Hello World Sample
+# Pacman!
 
-This application demonstrates a simple, reusable Node.js web application based on the Express framework.
 
-## Run the app locally
 
-1. [Install Node.js][]
-1. cd into this project's root directory
-1. Run `npm install` to install the app's dependencies
-1. Run `npm start` to start the app
-1. Access the running app in a browser at <http://localhost:6001>
+## Run the app locally - docker
 
-[Install Node.js]: https://nodejs.org/en/download/
+```
+cd v1
+docker build -t pacman .
+docker run -d -p 80:80 pacman
+```
+
+
+
+## Run the app locally - node
+
+```shell
+cd v1
+npm install
+npm start
+```
+

@@ -1,5 +1,5 @@
 applications:
-  - path: .
+  - path: pacman
     name: cloud-packman
     environment_json: {}
     memory: 256M

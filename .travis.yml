@@ -8,8 +8,15 @@ node_js:
 services:
   - docker
 
+before_install: 
+  - cd $TRAVIS_BUILD_DIR/v1/pacman
+  - docker build -t kota661/pacman:v1 .
+  - cd $TRAVIS_BUILD_DIR/v2/pacman
+  - docker build -t kota661/pacman:v2 .
+
 install:
-  - docker build -t kota661/pacman:latest .
+  - docker run -d -p 8080:80 kota661/pacman:v1
+  - docker run -d -p 8090:80 kota661/pacman:v2
 
 script:
   - echo "Build complete!"
@@ -18,5 +25,6 @@ after_success:
   - echo "Current branch is ${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}"
   - if [ "${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}" == "master" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push kota661/pacman:latest;
+    docker push kota661/pacman:v1;
+    docker push kota661/pacman:v2;
     fi

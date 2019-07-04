@@ -2,9 +2,9 @@ FROM node:10
 MAINTAINER Kota Sato "satokota@jp.ibm.com"
 
 WORKDIR /usr/src/app
-COPY package*.json ./
+COPY pacman/package*.json ./
 RUN npm install
-COPY . .
+COPY pacman .
 
 ENV PORT=80
 EXPOSE 80
