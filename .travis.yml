@@ -9,9 +9,9 @@ services:
   - docker
 
 before_install: 
-  - cd $TRAVIS_BUILD_DIR/v1/pacman
+  - cd $TRAVIS_BUILD_DIR/v1
   - docker build -t kota661/pacman:v1 .
-  - cd $TRAVIS_BUILD_DIR/v2/pacman
+  - cd $TRAVIS_BUILD_DIR/v2
   - docker build -t kota661/pacman:v2 .
 
 install:
