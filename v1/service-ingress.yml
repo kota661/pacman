@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: pacman
+  labels:
+    app: pacman
+  annotations:
+    # ingress.bluemix.net/rewrite-path: "serviceName=hello-nodejs rewrite=/;serviceName=pacman rewrite=/"
+    # ex) ingress.bluemix.net/rewrite-path: "serviceName=app rewrite=/"
+    # ingress.bluemix.net/redirect-to-https: "True" 
+spec:
+  tls:
+  - hosts:
+    - satokota-cluster.jp-tok.containers.appdomain.cloud # ibmcloud ks cluster-get mycluster --json | jq '.ingressHostname'
+    secretName: satokota-cluster # ibmcloud ks cluster-get mycluster --json | jq '.ingressSecretName'
+  rules:
+  - host: satokota-cluster.jp-tok.containers.appdomain.cloud
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pacman
+          servicePort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: pacman
+spec:
+  selector:
+    app: pacman
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

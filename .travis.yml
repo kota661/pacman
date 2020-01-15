@@ -15,8 +15,8 @@ before_install:
   - docker build -t kota661/pacman:v2 .
 
 install:
-  - docker run -d -p 8080:80 kota661/pacman:v1
-  - docker run -d -p 8090:80 kota661/pacman:v2
+  - docker run -d -p 8080:8080 kota661/pacman:v1
+  - docker run -d -p 8090:8080 kota661/pacman:v2
 
 script:
   - echo "Build complete!"
