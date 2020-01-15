@@ -23,6 +23,9 @@ function geronimo() {
 
 	var mapConfig = "data/map.json";
 
+	
+	const LIFE=3; //ゲームのライフ数
+
 
 	/* AJAX stuff */
 	function getHighscore() {
@@ -382,7 +385,7 @@ function geronimo() {
 			if (state === 0) {
 				this.score.set(0);
 				this.score.refresh(".score");
-				pacman.lives = 3; //ライフ数
+				pacman.lives = LIFE; //ライフ数
 				game.level = 1;
 				this.refreshLevel(".level");
 				game.gameOver = false;
