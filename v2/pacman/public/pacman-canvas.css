@@ -167,7 +167,7 @@ audio {display: block; }
 .description { display: none; }
 
 @media screen and (max-width: 1050px) {
-	html, body { background: rgb(0,0,0);}
+	html, body { background:  #018786;} /* background-color. dark: #121212, color: #018786 */
 }
 @media screen and (max-width: 650px) {
 	.game { width: 93%;}
