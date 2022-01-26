@@ -24,7 +24,7 @@ function geronimo() {
 	var mapConfig = "data/map.json";
 
 	
-	const LIFE=1; //ゲームのライフ数
+	const LIFE=3; //ゲームのライフ数
 
 
 	/* AJAX stuff */
