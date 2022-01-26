@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: pacman
-        image: kota661/pacman:latest
+        image: kota661/pacman:v1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
