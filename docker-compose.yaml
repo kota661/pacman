@@ -2,7 +2,7 @@ version: '3'
 
 services:
   pacman:
-    image: kota661/pacman:latest
+    image: kota661/pacman:v2
     ports:
      - "8080:8080"
     build: .
