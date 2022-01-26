@@ -1,0 +1,48 @@
+name: ci
+
+on:
+  push:
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Set branch name
+        shell: bash
+        run: echo "::set-output name=BRANCH_NAME::${GITHUB_REF#refs/heads/}"
+        id: branch_name
+      - 
+        name: Set tag name
+        env:
+          BRANCH_NAME: ${{ steps.branch_name.outputs.BRANCH_NAME }}
+        run: |
+            if [ "$BRANCH_NAME" = 'main' ]; then
+                export IMAGE_TAG_NAME="latest"
+            else
+                export IMAGE_TAG_NAME="$BRANCH_NAME"
+            fi
+            echo "::set-output name=IMAGE_TAG_NAME::$IMAGE_TAG_NAME"
+        id: tag_name
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: kota661/pacman:${{ steps.tag_name.outputs.IMAGE_TAG_NAME }}

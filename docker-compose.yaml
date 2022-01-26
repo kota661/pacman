@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  pacman:
+    image: kota661/pacman:latest
+    ports:
+     - "8080:8080"
+    build: .

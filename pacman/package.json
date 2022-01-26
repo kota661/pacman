@@ -1,0 +1,16 @@
+{
+	"name": "Pacman",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"start": "node app.js"
+	},
+	"dependencies": {
+		"express": "^4.16.4",
+		"js-yaml": ">=3.13.1"
+	},
+	"repository": {},
+	"engines": {
+		"node": "17.x"
+	}
+}
