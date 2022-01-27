@@ -1,4 +1,5 @@
-[![Build Status](https://github.com/kota661/pacman/actions/workflows/main.yaml/badge.svg)](https://github.com/kota661/pacman/actions/workflows/docker.yaml)
+[![Build Status](https://github.com/kota661/pacman/actions/workflows/main.yaml/badge.svg)](https://github.com/kota661/pacman/actions/workflows/main.yaml)
+
 
 # Pacman!
 
